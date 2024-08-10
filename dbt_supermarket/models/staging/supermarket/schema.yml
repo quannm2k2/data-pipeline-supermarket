@@ -1,0 +1,68 @@
+version 2:
+
+models:
+  - name: stg_supermarket__aisles
+    description: "Thông tin gian hàng"
+    columns:
+      - name: aisle_id
+        description: "ID của gian hàng"
+        data_tests:
+          - unique
+          - not_null
+      - name: aisle
+        description: "Tên của gian hàng"
+        data_tests:
+          - unique
+          - not_null
+  - name: stg_supermarket__departments
+    description: "Phân loại sản phẩm"
+    columns:
+      - name: department_id
+        data_tests:
+          - unique
+          - not_null
+      - name: department
+        description: "Tên phân loại"
+        data_tests:
+          - unique
+          - not_null
+  - name: stg_supermarket__order_products
+    description: "Thông tin chi tiết về các sản phẩm trong từng đơn hàng"
+    columns:
+      - name: order_id
+        data_tests:
+          - not_null
+      - name: product_id
+        data_tests:
+          - not_null
+      - name: add_to_cart_order
+  - name: stg_supermarket__orders_small_version
+    columns:
+      - name: order_id
+        data_tests:
+          - not_null
+      - name: user_id
+        data_tests:
+          - not_null
+      - name: eval_set
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['prior', 'train', 'test']
+              quote: true
+  - name: produstg_supermarket__productscts
+    columns:
+      - name: product_id
+        data_tests:
+          - unique
+          - not_null
+      - name: product_name
+        data_tests:
+          - unique
+          - not_null
+      - name: aisle_id
+        data_tests:
+          - not_null
+      - name: department_id
+        data_tests:
+          - not_null

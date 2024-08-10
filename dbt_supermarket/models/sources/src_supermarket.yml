@@ -1,0 +1,11 @@
+version 2:
+
+sources:
+  - name: src_supermarket
+    schema: supermarket_staging
+    tables:
+      - name: aisles
+      - name: departments
+      - name: order_products
+      - name: orders_small_version
+      - name: products
